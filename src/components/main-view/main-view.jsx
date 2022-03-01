@@ -52,6 +52,6 @@ render() {
   );
 }
 
-}
+};
 
 export default MainView;
