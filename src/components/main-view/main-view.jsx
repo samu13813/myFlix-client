@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import { LoginView } from '../login-view/login-view';
+import { RegistrationView } from '../registration-view/registration-view';
 import MovieCard from '../movie-card/movie-card';
 import MovieView from '../movie-view/movie-view';
 
@@ -29,9 +30,9 @@ class MainView extends React.Component {
   }
 
 // When a movie is clicked, this function is called and updates the state of 'selectedMovie'
-  setSelectedMovie(newSelectedMovie) {
+  setSelectedMovie(movie) {
     this.setState ({
-      selectedMovie: newSelectedMovie
+      selectedMovie: movie
     });
   }
 
@@ -42,12 +43,19 @@ class MainView extends React.Component {
     });
   }
 
+  // Below function gets updated when a new user register
+  onRegistration(register) {
+    this.setState({
+      register
+    });
+  }
 
-//Below code renders the movies list. If its empty, displays a message
 render() {
-  const { movies, selectedMovie } = this.state;
+  const { movies, selectedMovie, user, register } = this.state;
 
-  // If ther eis no user, the LoginView is rendered. If there is a user logged in, the user details are passed as a prop to the LoginView
+  if (!register) return <RegistrationView onRegistration={register => this.onRegistration(register)} />;
+
+  // If there is no user, the LoginView is rendered. If there is a user logged in, the user details are passed as a prop to the LoginView
   if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
 
   // Before the movies have been loaded
@@ -55,7 +63,6 @@ render() {
 
   return (
     <div className="main-view">
-    // If the state of 'selectedMovie' is not null, that selected movie will be returned. Otherwhise, all movies will be returned
       {selectedMovie
         ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
         : movies.map(movie => (
