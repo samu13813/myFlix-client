@@ -25679,6 +25679,6 @@ $RefreshReg$(_c, "RegistrationView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"7ll46","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"90KZO","prop-types":"1tgq3"}]},["6vAji","6x8n5","dLPEP"], "dLPEP", "parcelRequireaec4")
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","@parcel/transformer-js/src/esmodule-helpers.js":"7ll46","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"90KZO"}]},["6vAji","6x8n5","dLPEP"], "dLPEP", "parcelRequireaec4")
 
 //# sourceMappingURL=index.6701a6e1.js.map
