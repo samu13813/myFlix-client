@@ -2,6 +2,18 @@ import React from 'react';
 
 class MovieView extends React.Component {
 
+  // keypressCallback(event) {
+  //   console.log(event.key);
+  // }
+  //
+  // componentDidMount() {
+  //   document.addEventListener('keypress', this.keypressCallback);
+  // }
+  //
+  // componentWillUnmount() {
+  //   document.removeEventListener('keypress', this.keypressCallback);
+  // }
+
   render() {
     const { movie, onBackClick } = this.props;
 
@@ -19,7 +31,7 @@ class MovieView extends React.Component {
           <span className="value">{movie.Description}</span>
         </div>
         <button onClick={() => { onBackClick(null); }}>Back</button>
-        
+
       </div>
     );
   }
