@@ -5,6 +5,7 @@ import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import MovieCard from '../movie-card/movie-card';
 import MovieView from '../movie-view/movie-view';
+import NavbarComp from '../navbar/navbar';
 
 class MainView extends React.Component {
 
@@ -50,27 +51,38 @@ class MainView extends React.Component {
     });
   }
 
-render() {
-  const { movies, selectedMovie, user, register } = this.state;
+  render() {
+    const { movies, selectedMovie, user, register } = this.state;
 
-  if (!register) return <RegistrationView onRegistration={register => this.onRegistration(register)} />;
+    if (!register) return (
+      <div>
+        <NavbarComp/>
+        <RegistrationView onRegistration={register => this.onRegistration(register)} />
+      </div>
+    );
 
-  // If there is no user, the LoginView is rendered. If there is a user logged in, the user details are passed as a prop to the LoginView
-  if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+    // If there is no user, the LoginView is rendered. If there is a user logged in, the user details are passed as a prop to the LoginView
+    if (!user) return (
+      <div>
+        <NavbarComp/>
+        <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+      </div>
+    );
 
-  // Before the movies have been loaded
-  if (movies.length === 0) return <div className="main-view" />;
+    // Before the movies have been loaded
+    if (movies.length === 0) return <div className="main-view" />;
 
-  return (
-    <div className="main-view">
-      {selectedMovie
-        ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-        : movies.map(movie => (
-          <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }}/>
-        ))
-      }
-    </div>
-  );
+    return (
+      <div className="main-view">
+        <NavbarComp/>
+        {selectedMovie
+          ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+          : movies.map(movie => (
+            <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }}/>
+          ))
+        }
+      </div>
+    );
 }
 
 };
