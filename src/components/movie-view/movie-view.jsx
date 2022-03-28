@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Card, Container, Col, Row } from 'react-bootstrap';
 
 class MovieView extends React.Component {
 
@@ -6,21 +7,20 @@ class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <div className="movie-view">
-        <div className="movie-poster">
-          <img src={movie.ImagePath} />
-        </div>
-        <div className="movie-title">
-          <span className="label">Title: </span>
-          <span className="value">{movie.Title}</span>
-        </div>
-        <div className="movie-description">
-          <span className="label">Description: </span>
-          <span className="value">{movie.Description}</span>
-        </div>
-        <button onClick={() => { onBackClick(null); }}>Back</button>
-
-      </div>
+      <Container>
+        <Col>
+          <Row className='d-block'>
+            <Card className='mt-3'>
+              <Card.Body>
+                <Card.Img className='pr-2 mb-2 w-25 float-left' src={movie.ImagePath} />
+                <Card.Title>{movie.Title}</Card.Title>
+                <Card.Text>{movie.Description}</Card.Text>
+                <Button className='mt-5 mb-0' onClick={() => onBackClick(null)} variant='secondary'>Back</Button>
+              </Card.Body>
+            </Card>
+          </Row>
+        </Col>
+      </Container>
     );
   }
 }
