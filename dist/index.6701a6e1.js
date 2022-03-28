@@ -37818,6 +37818,6 @@ exports.default = NavbarComp;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","./navbar.scss":"eqSoH","@parcel/transformer-js/src/esmodule-helpers.js":"7ll46","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"90KZO"}],"eqSoH":[function() {},{}]},["6vAji","6x8n5","dLPEP"], "dLPEP", "parcelRequireaec4")
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","@parcel/transformer-js/src/esmodule-helpers.js":"7ll46","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"90KZO","./navbar.scss":"eqSoH"}],"eqSoH":[function() {},{}]},["6vAji","6x8n5","dLPEP"], "dLPEP", "parcelRequireaec4")
 
 //# sourceMappingURL=index.6701a6e1.js.map
