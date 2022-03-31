@@ -3,8 +3,15 @@ import { Navbar, Nav } from 'react-bootstrap';
 
 import './navbar.scss';
 
-export default class NavbarComp extends React.Component {
+class NavbarComp extends React.Component {
+
   render() {
+
+    const onLoggedOut = () => {
+        localStorage.clear();
+        window.open('/', '_self');
+    };
+
     return (
       <div>
         <Navbar bg="light" variant="light" expand="md">
@@ -13,6 +20,8 @@ export default class NavbarComp extends React.Component {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
                 <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/profile">Profile</Nav.Link>
+                <Nav.Link onClick={() => { onLoggedOut(); }}>Log Out</Nav.Link>
               </Nav>
             </Navbar.Collapse>
         </Navbar>
@@ -20,3 +29,5 @@ export default class NavbarComp extends React.Component {
     )
   }
 }
+
+export default NavbarComp;
