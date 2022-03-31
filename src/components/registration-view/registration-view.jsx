@@ -3,6 +3,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import {Form, Button, Card, CardGroup, Container, Col, Row} from 'react-bootstrap';
 import './registration-view.scss';
+import { Link } from 'react-router-dom';
 
 export function RegistrationView(props) {
   const [ username, setUsername ] = useState('');
@@ -88,7 +89,9 @@ export function RegistrationView(props) {
                 </Form.Group>
 
                 <Button variant='primary' type='submit' onClick={handleSubmit}>Submit</Button>
-
+                <Link to='/'>
+                  <Button variant='secondary' className='ml-3'>Log In</Button>
+                </Link>
               </Form>
               </Card.Body>
             </Card>
@@ -99,7 +102,3 @@ export function RegistrationView(props) {
 
   );
 }
-
-RegistrationView.propTypes = {
-  onRegistration: PropTypes.func.isRequired,
-};
