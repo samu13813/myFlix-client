@@ -23199,7 +23199,7 @@ class MovieCard extends _reactDefault.default.Component {
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_.Card.Img, {
-                                className: "pr-2 mb-2 w-25",
+                                className: "pr-2 mb-2 w-75",
                                 src: movie.ImagePath,
                                 __source: {
                                     fileName: "src/components/movie-card/movie-card.jsx",

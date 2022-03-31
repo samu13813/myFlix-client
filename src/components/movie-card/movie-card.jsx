@@ -12,7 +12,7 @@ class MovieCard extends React.Component {
         <Row className='d-block'>
           <Card className='mx-auto'>
             <Card.Body>
-              <Card.Img className='pr-2 mb-2 w-25' src={movie.ImagePath} />
+              <Card.Img className='pr-2 mb-2 w-75' src={movie.ImagePath} />
               <Card.Title>{movie.Title}</Card.Title>
               <Card.Text>{movie.Description}</Card.Text>
               <Link to={`/movies/${movie._id}`}>
