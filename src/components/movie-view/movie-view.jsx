@@ -48,7 +48,11 @@ class MovieView extends React.Component {
       headers: { Authorization: `Bearer ${token}`},
     })
     .then((response) => {
-      window.open('/', '_self');
+      this.setState({
+        FavoriteMovies: response.data.FavoriteMovies
+      });
+      console.log(response);
+      alert('Movie added to favorites');
     })
     .catch(function (error) {
       console.log(error);
@@ -76,7 +80,7 @@ class MovieView extends React.Component {
                 <Link to={`/`}>
                   <Button className='mr-3 mt-5 mb-0' variant='secondary' onClick={() => { onBackClick(); }}>Back</Button>
                 </Link>
-                <Button className='mt-5 mb-0' variant='light' onClick={this.addFavorite}>Add to Favorites</Button>
+                <Button className='mt-5 mb-0' value={movie.id} variant='light' onClick={this.addFavorite(movie)}>Add to Favorites</Button>
               </Card.Body>
             </Card>
           </Row>

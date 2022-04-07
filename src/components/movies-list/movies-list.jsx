@@ -7,7 +7,7 @@ import { MovieCard } from '../movie-card/movie-card';
 
 const mapStateToProps = state => {
   const { visibilityFilter } = state;
-  return { visibilityFilter};
+  return { visibilityFilter };
 };
 
 function MoviesList(props) {
@@ -18,18 +18,18 @@ function MoviesList(props) {
     filteredMovies = movies.filter(m => m.Title.toLowerCase().includes(visibilityFilter.toLowerCase()));
   }
 
-  if(!movies) return <div className='main-view' />
+  if (!movies) return <div className="main-view" />;
 
   return <>
-    <Col md={12} style={{ margin: '1em' }}>
+    <Col md={8} style={{ margin: '1em' }}>
       <VisibilityFilterInput visibilityFilter={visibilityFilter} />
     </Col>
     {filteredMovies.map(m => (
-      <Col md={3} key={m._id}>
+      <Col md={4} key={m._id}>
         <MovieCard movie={m} />
       </Col>
-    ))}
-  </>
+    ))};
+  </>;
 }
 
-export default connect(mapStateToProps)(MovieList);
+export default connect(mapStateToProps)(MoviesList);

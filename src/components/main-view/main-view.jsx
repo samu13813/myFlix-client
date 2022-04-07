@@ -6,8 +6,8 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import { setMovies } from '../../actions/actions';
-import MoviesList from '../movies-list/movies-list';
 
+import MoviesList from '../movies-list/movies-list';
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import ProfileView from '../profile-view/profile-view';
@@ -26,6 +26,19 @@ class MainView extends React.Component {
     this.state = {
       user: null,
     };
+  }
+
+  getMovies(token) {
+    axios.get('https://myflixmovies-app.herokuapp.com/movies', {
+      headers: { Authorization: `Bearer ${token}`}
+    })
+    .then(response => {
+      //Asign the result to the state
+      this.props.setMovies(response.data);
+    })
+    .catch(function(error) {
+      console.log(error)
+    });
   }
 
 componentDidMount() {
@@ -68,19 +81,6 @@ componentDidMount() {
   onRegistration(register) {
     this.setState({
       register
-    });
-  }
-
-  getMovies(token) {
-    axios.get('https://myflixmovies-app.herokuapp.com/movies', {
-      headers: { Authorization: `Bearer ${token}`}
-    })
-    .then(response => {
-      //Asign the result to the state
-      this.props.setMovies(response.data);
-    })
-    .catch(function(error) {
-      console.log(error)
     });
   }
 
