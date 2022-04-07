@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Button, Card, Container, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+
 class MovieView extends React.Component {
 
   constructor(props) {
